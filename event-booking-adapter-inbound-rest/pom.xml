@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.musalasoft</groupId>
+        <artifactId>event-booking</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>event-booking-adapter-inbound-rest</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>event-booking-adapter-inbound-rest</name>
+    <description>event-booking-adapter-inbound-rest</description>
+
+    <properties>
+        <jackson.databind.version>0.2.6</jackson.databind.version>
+        <springdoc.openapi.version>1.6.15</springdoc.openapi.version>
+        <javax.annotation.version>1.3.2</javax.annotation.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.musalasoft</groupId>
+            <artifactId>event-booking-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.openapi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson.databind.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/swagger.yml</inputSpec>
+                            <output>${project.basedir}</output>
+                            <generatorName>spring</generatorName>
+                            <library>spring-boot</library>
+                            <apiPackage>com.musalasoft.eventbooking.rest.api</apiPackage>
+                            <modelPackage>com.musalasoft.eventbooking.rest.model</modelPackage>
+                            <generateApis>true</generateApis>
+                            <generateModels>true</generateModels>
+                            <skipOperationExample>true</skipOperationExample>
+
+                            <generateApiDocumentation>false</generateApiDocumentation>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

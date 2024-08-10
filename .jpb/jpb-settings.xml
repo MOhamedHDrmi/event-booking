@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="event-booking-application" name="Default">
+        <packages>
+          <package value="com.musalasoft.eventbooking.sql.entity" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="event-booking-adapter-outbound-sql" name="Default" />
+    </persistence-units>
+  </component>
+</project>
