@@ -6,7 +6,7 @@
 
 | Method | Path | Description |
 | --- | --- | --- |
-| `POST | [/users](#postusers) | Create a new user. |
+| POST | [/users](#postusers) | Create a new user. |
 | POST | [/auth](#postauth) | Authenticate a user. |
 | POST | [/events](#postevents) | Create a new event. |
 | GET | [/events](#getevents) | Get all events or search for events. |
